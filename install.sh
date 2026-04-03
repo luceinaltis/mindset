@@ -39,13 +39,24 @@ else
   esac
 fi
 
-# Set paths based on tool
+# Set paths based on tool + scope
 if [ "$TOOL" = "claude" ]; then
-  TOOL_DIR="$HOME/.claude"
+  if [ "$SCOPE" = "project" ]; then
+    TOOL_DIR="./.claude"
+    IMPORT_LINE="@.claude/mindset/AGENTS.md"
+    TARGET="./CLAUDE.md"
+  else
+    TOOL_DIR="$HOME/.claude"
+    IMPORT_LINE="@~/.claude/mindset/AGENTS.md"
+    TARGET="$TOOL_DIR/CLAUDE.md"
+  fi
   MINDSET_DIR="$TOOL_DIR/mindset"
-  IMPORT_LINE="@~/.claude/mindset/AGENTS.md"
 else
-  TOOL_DIR="$HOME/.codex"
+  if [ "$SCOPE" = "project" ]; then
+    TOOL_DIR="./.codex"
+  else
+    TOOL_DIR="$HOME/.codex"
+  fi
   MINDSET_DIR="$TOOL_DIR/mindset"
 fi
 
@@ -61,12 +72,6 @@ fi
 
 # Install based on tool + scope
 if [ "$TOOL" = "claude" ]; then
-  if [ "$SCOPE" = "project" ]; then
-    TARGET="./CLAUDE.md"
-  else
-    TARGET="$TOOL_DIR/CLAUDE.md"
-  fi
-
   if [ -f "$TARGET" ] && grep -qF "$IMPORT_LINE" "$TARGET"; then
     echo "Already installed in $TARGET"
   else
