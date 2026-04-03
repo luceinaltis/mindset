@@ -1,3 +1,8 @@
+---
+name: Dependency Management
+description: Use when adding, removing, or updating project dependencies.
+---
+
 # Skill: Dependency Management
 
 ## Purpose

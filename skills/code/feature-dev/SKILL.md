@@ -1,3 +1,8 @@
+---
+name: Feature Development
+description: Use when implementing new features — requirement analysis, design, incremental implementation, and PR creation.
+---
+
 # Skill: Feature Development
 
 ## Purpose

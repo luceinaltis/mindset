@@ -17,6 +17,7 @@ curl -fsSL https://raw.githubusercontent.com/luceinaltis/mindset/main/install.sh
 - Clones this repo to `~/.claude/mindset` or `~/.codex/mindset`
 - Claude Code: adds `@~/.claude/mindset/AGENTS.md` to `CLAUDE.md`
 - Codex: copies `AGENTS.md` to the target location
+- Symlinks each skill into `.claude/skills/` or `.agents/skills/`
 - Changes apply on next session start
 
 ## Update

@@ -1,3 +1,8 @@
+---
+name: Issue Analysis
+description: Use when diagnosing bugs — reproduce, locate root cause, assess impact, and propose fix.
+---
+
 # Skill: Issue Analysis
 
 ## Purpose

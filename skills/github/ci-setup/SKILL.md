@@ -1,3 +1,8 @@
+---
+name: CI Setup
+description: Use when setting up CI pipelines — GitHub Actions, lint/test jobs, and auto-merge.
+---
+
 # Skill: CI Setup
 
 ## Purpose

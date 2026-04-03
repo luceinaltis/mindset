@@ -1,3 +1,8 @@
+---
+name: Hotfix
+description: Use when fixing production issues urgently — minimal change, fast PR, regression test.
+---
+
 # Skill: Hotfix
 
 ## Purpose

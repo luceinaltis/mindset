@@ -1,3 +1,8 @@
+---
+name: PR Review Cycle
+description: Use when managing full PR review lifecycle — re-reviews, stale PR handling, and merge flow.
+---
+
 # Skill: PR Review Cycle
 
 ## Purpose

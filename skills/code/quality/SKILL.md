@@ -1,3 +1,8 @@
+---
+name: Code Quality Standards
+description: Use when reviewing code quality — universal rules, commit conventions, and red flags.
+---
+
 # Skill: Code Quality Standards
 
 ## Universal Rules

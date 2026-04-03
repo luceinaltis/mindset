@@ -1,3 +1,8 @@
+---
+name: Testing
+description: Use when writing or reviewing tests — unit/integration test strategy, AAA pattern, and coverage conventions.
+---
+
 # Skill: Testing
 
 ## Purpose

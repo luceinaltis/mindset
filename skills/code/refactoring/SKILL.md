@@ -1,3 +1,8 @@
+---
+name: Refactoring
+description: Use when restructuring existing code — extract functions, rename, move modules without changing behavior.
+---
+
 # Skill: Refactoring
 
 ## Purpose

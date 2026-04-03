@@ -1,3 +1,8 @@
+---
+name: Design Before Implementing
+description: Use before implementing new modules, adding dependencies, or changing component interactions.
+---
+
 # Skill: Design Before Implementing
 
 ## Purpose

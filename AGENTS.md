@@ -68,15 +68,15 @@ Shared skills are in `skills/`. Reference them when needed:
 
 | Task | Skill |
 |------|-------|
-| Feature development | `skills/code/feature-dev.md` |
-| Design decisions | `skills/code/design.md` |
-| Refactoring | `skills/code/refactoring.md` |
-| Testing | `skills/code/testing.md` |
-| Code quality standards | `skills/code/quality.md` |
-| PR review | `skills/github/pr-review.md` |
-| Issue analysis | `skills/github/issue-analysis.md` |
-| CI setup | `skills/github/ci-setup.md` |
-| Repo setup | `skills/github/repo-setup.md` |
-| Hotfix | `skills/github/hotfix.md` |
-| PR review cycle (re-review) | `skills/github/pr-review-cycle.md` |
-| Dependency management | `skills/code/dependencies.md` |
+| Feature development | `skills/code/feature-dev/` |
+| Design decisions | `skills/code/design/` |
+| Refactoring | `skills/code/refactoring/` |
+| Testing | `skills/code/testing/` |
+| Code quality standards | `skills/code/quality/` |
+| Dependency management | `skills/code/dependencies/` |
+| PR review | `skills/github/pr-review/` |
+| PR review cycle (re-review) | `skills/github/pr-review-cycle/` |
+| Issue analysis | `skills/github/issue-analysis/` |
+| CI setup | `skills/github/ci-setup/` |
+| Hotfix | `skills/github/hotfix/` |
+| Repo setup | `skills/github/repo-setup/` |

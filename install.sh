@@ -70,7 +70,7 @@ else
   git clone "$REPO_URL" "$MINDSET_DIR"
 fi
 
-# Install based on tool + scope
+# Install AGENTS.md
 if [ "$TOOL" = "claude" ]; then
   if [ -f "$TARGET" ] && grep -qF "$IMPORT_LINE" "$TARGET"; then
     echo "Already installed in $TARGET"
@@ -89,5 +89,24 @@ else
   cp "$MINDSET_DIR/AGENTS.md" "$TARGET"
   echo "Copied to $TARGET"
 fi
+
+# Install skills via symlinks
+if [ "$TOOL" = "claude" ]; then
+  SKILLS_TARGET="$TOOL_DIR/skills"
+else
+  if [ "$SCOPE" = "project" ]; then
+    SKILLS_TARGET="./.agents/skills"
+  else
+    SKILLS_TARGET="$HOME/.agents/skills"
+  fi
+fi
+
+mkdir -p "$SKILLS_TARGET"
+for skill_dir in "$MINDSET_DIR/skills/code/"* "$MINDSET_DIR/skills/github/"*; do
+  [ -d "$skill_dir" ] || continue
+  skill_name=$(basename "$skill_dir")
+  ln -sfn "$skill_dir" "$SKILLS_TARGET/$skill_name"
+done
+echo "Skills linked to $SKILLS_TARGET"
 
 echo "Done! Restart $TOOL to apply."

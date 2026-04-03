@@ -1,3 +1,8 @@
+---
+name: PR Review
+description: Use when reviewing pull requests — diff analysis, blocking vs non-blocking issues, and merge decisions.
+---
+
 # Skill: PR Review
 
 ## Purpose

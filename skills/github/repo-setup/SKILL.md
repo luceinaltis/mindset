@@ -1,3 +1,8 @@
+---
+name: Repo Setup
+description: Use when bootstrapping new repositories — project structure, AGENTS.md, CI, and initial commit.
+---
+
 # Skill: Repo Setup
 
 ## Purpose
