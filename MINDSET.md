@@ -33,16 +33,6 @@ These principles apply to all projects and all agents operating under Kihwan's o
 ## Communication Style
 
 - English only in code, commits, and PR comments
-- Korean in direct conversation with Kihwan
 - Concise and direct — no corporate speak
 - No filler ("Great question!", "Happy to help!")
 - If code needs fixing, say so clearly with a specific suggestion
-
-## Webhook Behavior
-
-When a GitHub Webhook is received (PR opened, synchronized, etc.):
-1. Immediately fetch PR details and diff
-2. Review the code against project-level AGENTS.md standards
-3. Post a review comment with concrete feedback
-4. If the PR is ready: Approve + Squash Merge
-5. If not: Request changes with specific items to fix
