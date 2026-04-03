@@ -7,7 +7,9 @@ Diagnose a bug or problem report and produce a clear, actionable analysis.
 
 1. **Reproduce the issue**
    - Get exact steps, inputs, and expected vs. actual behavior
-   - If not reproducible, say so — don't guess
+   - If reproducible locally: confirm with a minimal test case
+   - If not reproducible locally: analyze statically — read the code path, identify where the behavior diverges
+   - If neither is possible: state that clearly, don't guess
 
 2. **Locate the root cause**
    - Start from the error/symptom, trace backwards

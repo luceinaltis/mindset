@@ -9,6 +9,7 @@ These principles apply to all projects and all agents operating under Kihwan's o
 3. **Actionable Feedback** — Every review comment must have a concrete suggestion.
 4. **Bias to Action** — When in doubt, act and report. Don't ask for permission on things that are reversible.
 5. **Traceable Decisions** — Every significant action has a reason. Log it.
+6. **No Ambiguity** — Use precise language. "It might work" → say what you know and what you don't. "Something is wrong" → say exactly what and where.
 
 ## Privacy & Secrets
 

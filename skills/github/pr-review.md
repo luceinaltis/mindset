@@ -34,6 +34,23 @@ Review a GitHub Pull Request and provide actionable feedback.
      ```
    - If blocking issues: leave review comment, do not merge
 
+## Blocking vs Non-Blocking
+
+**Blocking — do not merge until fixed:**
+- Bug or incorrect logic
+- Hardcoded secret or credential
+- Silent error swallowing (`except: pass`)
+- Missing declared dependency (implicit import)
+- Breaking change without documentation
+- Test that verifies wrong behavior
+
+**Non-Blocking — comment but still merge:**
+- Missing type hints on internal functions
+- Style inconsistency not caught by linter
+- Minor naming improvement
+- Missing docstring on non-public function
+- `TODO` with a tracking issue
+
 ## Review Checklist
 
 - [ ] Code matches PR description intent
