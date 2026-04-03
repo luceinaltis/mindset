@@ -77,3 +77,4 @@ Shared skills are in `skills/`. Reference them when needed:
 | Issue analysis | `skills/github/issue-analysis.md` |
 | CI setup | `skills/github/ci-setup.md` |
 | Repo setup | `skills/github/repo-setup.md` |
+| Hotfix | `skills/github/hotfix.md` |
