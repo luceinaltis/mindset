@@ -43,71 +43,46 @@ fi
 if [ "$TOOL" = "claude" ]; then
   if [ "$SCOPE" = "project" ]; then
     TOOL_DIR="./.claude"
-    IMPORT_LINE="@.claude/mindset/AGENTS.md"
-    TARGET="./CLAUDE.md"
   else
     TOOL_DIR="$HOME/.claude"
-    IMPORT_LINE="@~/.claude/mindset/AGENTS.md"
-    TARGET="$TOOL_DIR/CLAUDE.md"
   fi
-  MINDSET_DIR="$TOOL_DIR/mindset"
-else
-  if [ "$SCOPE" = "project" ]; then
-    TOOL_DIR="./.codex"
-  else
-    TOOL_DIR="$HOME/.codex"
-  fi
-  MINDSET_DIR="$TOOL_DIR/mindset"
-fi
-
-# Clone or update mindset into tool directory
-mkdir -p "$TOOL_DIR"
-if [ -d "$MINDSET_DIR/.git" ]; then
-  echo "Updating mindset..."
-  git -C "$MINDSET_DIR" pull
-else
-  echo "Installing mindset to $MINDSET_DIR..."
-  git clone "$REPO_URL" "$MINDSET_DIR"
-fi
-
-# Install AGENTS.md
-if [ "$TOOL" = "claude" ]; then
-  if [ -f "$TARGET" ] && grep -qF "$IMPORT_LINE" "$TARGET"; then
-    echo "Already installed in $TARGET"
-  else
-    echo "" >> "$TARGET"
-    echo "$IMPORT_LINE" >> "$TARGET"
-    echo "Added to $TARGET"
-  fi
-else
-  if [ "$SCOPE" = "project" ]; then
-    TARGET="./AGENTS.md"
-  else
-    TARGET="$TOOL_DIR/AGENTS.md"
-  fi
-
-  cp "$MINDSET_DIR/AGENTS.md" "$TARGET"
-  echo "Copied to $TARGET"
-fi
-
-# Install skills
-if [ "$TOOL" = "claude" ]; then
   SKILLS_TARGET="$TOOL_DIR/skills"
 else
   if [ "$SCOPE" = "project" ]; then
+    TOOL_DIR="./.codex"
     SKILLS_TARGET="./.agents/skills"
   else
+    TOOL_DIR="$HOME/.codex"
     SKILLS_TARGET="$HOME/.agents/skills"
   fi
 fi
 
+# Clone mindset to a temp directory
+TMPDIR=$(mktemp -d)
+echo "Downloading mindset..."
+git clone --quiet "$REPO_URL" "$TMPDIR"
+
+# Install AGENTS.md
+TARGET="$TOOL_DIR/AGENTS.md"
+mkdir -p "$TOOL_DIR"
+if [ -f "$TARGET" ]; then
+  echo "WARNING: $TARGET already exists, skipping AGENTS.md"
+else
+  cp "$TMPDIR/AGENTS.md" "$TARGET"
+  echo "Copied AGENTS.md to $TARGET"
+fi
+
+# Install skills
 mkdir -p "$SKILLS_TARGET"
-for skill_dir in "$MINDSET_DIR/skills/code/"* "$MINDSET_DIR/skills/github/"*; do
+for skill_dir in "$TMPDIR/skills/code/"* "$TMPDIR/skills/github/"*; do
   [ -d "$skill_dir" ] || continue
   skill_name=$(basename "$skill_dir")
   rm -rf "$SKILLS_TARGET/$skill_name"
   cp -r "$skill_dir" "$SKILLS_TARGET/$skill_name"
 done
 echo "Skills installed to $SKILLS_TARGET"
+
+# Cleanup
+rm -rf "$TMPDIR"
 
 echo "Done! Restart $TOOL to apply."
