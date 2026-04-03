@@ -2,106 +2,37 @@
 
 Agent mindset, principles, and shared skills for development projects.
 
-## Structure
+## Install
 
-```
-mindset/
-├── AGENTS.md              # Global principles + behavior guidelines
-└── skills/                # Shared skills
-    ├── code/
-    │   ├── feature-dev.md
-    │   ├── design.md
-    │   ├── refactoring.md
-    │   ├── testing.md
-    │   ├── quality.md
-    │   └── dependencies.md
-    └── github/
-        ├── pr-review.md
-        ├── pr-review-cycle.md
-        ├── issue-analysis.md
-        ├── ci-setup.md
-        ├── hotfix.md
-        └── repo-setup.md
-```
-
----
-
-## Installation
-
-### Option 1: Global (all projects)
-
-Apply mindset to every Claude Code session on your machine.
+### Global (all projects)
 
 ```bash
-# Clone mindset somewhere stable
-git clone https://github.com/luceinaltis/mindset ~/mindset
-
-# Create or edit your global CLAUDE.md
-mkdir -p ~/.claude
+curl -fsSL https://raw.githubusercontent.com/luceinaltis/mindset/main/install.sh | bash
 ```
 
-Add to `~/.claude/CLAUDE.md`:
-
-```markdown
-@~/mindset/AGENTS.md
-```
-
-Done. Claude Code loads this at the start of every session, across all projects.
-
----
-
-### Option 2: Per-project
-
-Apply mindset to a specific project only.
+### Per-project
 
 ```bash
-# Clone mindset somewhere stable (skip if already done)
-git clone https://github.com/luceinaltis/mindset ~/mindset
-```
-
-Add to your project's `CLAUDE.md` (or create one):
-
-```markdown
-@AGENTS.md
-@~/mindset/AGENTS.md
-```
-
-To include specific skills only:
-
-```markdown
-@AGENTS.md
-@~/mindset/skills/code/feature-dev.md
-@~/mindset/skills/github/pr-review.md
+curl -fsSL https://raw.githubusercontent.com/luceinaltis/mindset/main/install.sh | bash -s -- --project
 ```
 
 ---
 
-## Updating
+## What it does
+
+- Clones this repo to `~/mindset`
+- Adds `@~/mindset/AGENTS.md` to `~/.claude/CLAUDE.md` (global) or `./CLAUDE.md` (project)
+- Claude Code picks it up automatically on next session start
+
+## Update
 
 ```bash
-cd ~/mindset
-git pull
+git -C ~/mindset pull
 ```
 
-Changes take effect the next time Claude Code starts a session.
+## Custom skills
 
----
-
-## Adding Custom Skills
-
-Add project-specific skills in your project's `AGENTS.md` or in a separate file:
-
-```markdown
-# AGENTS.md (project-level)
-@~/mindset/AGENTS.md
-
-## Project-Specific Skills
-
-### Our Custom Rule
-...
-```
-
-Or create a dedicated file and import it:
+Add project-specific rules in your project's `AGENTS.md` or import a custom file:
 
 ```markdown
 # CLAUDE.md
