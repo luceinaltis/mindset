@@ -4,16 +4,8 @@ Agent mindset, principles, and shared skills for development projects.
 
 ## Install
 
-### Global (all projects)
-
 ```bash
 curl -fsSL https://raw.githubusercontent.com/luceinaltis/mindset/main/install.sh | bash
-```
-
-### Per-project
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/luceinaltis/mindset/main/install.sh | bash -s -- --project
 ```
 
 ---
