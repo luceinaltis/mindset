@@ -78,3 +78,5 @@ Shared skills are in `skills/`. Reference them when needed:
 | CI setup | `skills/github/ci-setup.md` |
 | Repo setup | `skills/github/repo-setup.md` |
 | Hotfix | `skills/github/hotfix.md` |
+| PR review cycle (re-review) | `skills/github/pr-review-cycle.md` |
+| Dependency management | `skills/code/dependencies.md` |
