@@ -90,7 +90,7 @@ else
   echo "Copied to $TARGET"
 fi
 
-# Install skills via symlinks
+# Install skills
 if [ "$TOOL" = "claude" ]; then
   SKILLS_TARGET="$TOOL_DIR/skills"
 else
@@ -105,8 +105,9 @@ mkdir -p "$SKILLS_TARGET"
 for skill_dir in "$MINDSET_DIR/skills/code/"* "$MINDSET_DIR/skills/github/"*; do
   [ -d "$skill_dir" ] || continue
   skill_name=$(basename "$skill_dir")
-  ln -sfn "$skill_dir" "$SKILLS_TARGET/$skill_name"
+  rm -rf "$SKILLS_TARGET/$skill_name"
+  cp -r "$skill_dir" "$SKILLS_TARGET/$skill_name"
 done
-echo "Skills linked to $SKILLS_TARGET"
+echo "Skills installed to $SKILLS_TARGET"
 
 echo "Done! Restart $TOOL to apply."
