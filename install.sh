@@ -12,10 +12,10 @@ BLUE='\033[0;34m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-info()   { echo -e "  ${BLUE}▸${NC} $1"; }
-ok()     { echo -e "  ${GREEN}✓${NC} $1"; }
-warn()   { echo -e "  ${YELLOW}⚠${NC} $1"; }
-header() { echo -e "\n${BOLD}$1${NC}"; }
+info()   { printf "  ${BLUE}▸${NC} %s\n" "$1"; }
+ok()     { printf "  ${GREEN}✓${NC} %s\n" "$1"; }
+warn()   { printf "  ${YELLOW}⚠${NC} %s\n" "$1"; }
+header() { printf "\n${BOLD}%s${NC}\n" "$1"; }
 
 header "mindset installer"
 
