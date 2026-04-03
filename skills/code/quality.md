@@ -1,0 +1,32 @@
+# Skill: Code Quality Standards
+
+## Universal Rules
+
+- **No silent failures** — errors must surface, never swallow exceptions
+- **No hardcoded secrets** — use `.env` (gitignored)
+- **No dead code** — if it's not used, remove it
+- **Dependency inversion** — depend on protocols/interfaces, not concrete implementations
+- **Files under 300 LOC** — split when exceeded
+- **DRY at 3+** — extract at 3+ occurrences, not 2 (avoid premature abstraction)
+
+## Python Specifics
+
+- Type hints on all public functions
+- `async/await` for all I/O-bound operations
+- Google-style docstrings on public functions/classes
+- `ruff` for lint + format, `pyright` for type checking
+- `pytest` for tests
+
+## Commit Standards
+
+- Conventional Commits: `feat|fix|refactor|build|ci|chore|docs|style|perf|test`
+- Atomic, focused commits — one logical change per commit
+- Branch naming: `feat/<name>`, `fix/<name>`, `refactor/<name>`
+
+## Red Flags in Code Review
+
+- `except: pass` or bare `except Exception`
+- `any` type in Python without a comment explaining why
+- Functions over 50 lines without clear sub-function extraction
+- Missing test for new behavior
+- `TODO` without a tracking issue
